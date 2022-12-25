@@ -1,0 +1,53 @@
+<body>
+    <script>
+
+        function sum() {
+            var currentCount = 0;
+
+            return function count(sum) {
+                let result = currentCount + sum;
+                currentCount = result;
+                return result;
+            }
+        }
+
+
+        var res = sum();
+
+        console.log(res(3));   //3
+        console.log(res(5));   // 8
+        console.log(res(20));  // 28
+
+
+
+
+        function makeCounter() {
+            let currentCount = 0;
+            let currentStep = 0;
+            return {
+                getCount: function () {
+                    currentCount += currentStep;
+                    return currentCount;
+
+                },
+
+                set: function (value) {
+                    currentCount = value;
+                },
+
+                reset: function (arg) {
+                    currentCount = arg;
+                    currentStep = 0;
+
+                },
+
+                step: function (step) {
+                    currentStep = step;
+                }
+
+
+            };
+        }
+
+    </script>
+</body>
